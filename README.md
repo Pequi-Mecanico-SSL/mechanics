@@ -1,6 +1,6 @@
 # Pequi Mecânico SSL — Mechanics
 
-Modelos de componentes e desenhos dimensionais para integração mecânica do robô SSL-EL. Seleção revisada em 26/09/2026 a partir dos nove arquivos fornecidos pela equipe.
+Modelos de componentes e desenhos dimensionais para integração mecânica do robô SSL-EL. Seleção revisada em 26/09/2026 a partir dos nove arquivos iniciais fornecidos pela equipe, com a conversão adicional da placa de chute ZJUNlict Booster Board.
 
 ## Componentes para a montagem
 
@@ -16,6 +16,12 @@ Importar os modelos de `components/` no CAD do chassi. As quantidades indicadas 
 | [Waveshare RS485 CAN HAT](components/waveshare-rs485-can-hat.step) | 1 | Montagem sobre a Raspberry Pi: espaçadores, altura e saída dos cabos CAN. Conferir revisão da placa. |
 
 As funções foram confrontadas com o TDP 2026 fornecido localmente e os repositórios [motor-controller](https://github.com/Pequi-Mecanico-SSL/motor-controller) e [pequi_ssl_el](https://github.com/Pequi-Mecanico-SSL/pequi_ssl_el). O [código de cinemática](https://github.com/Pequi-Mecanico-SSL/pequi_ssl_el/blob/3afe7e71667017f5217aa777948763932293336f/src/robot_control/robot_control/kinematics.py) usa raio efetivo de roda de 24,5 mm; não alterar essa calibração apenas pelo nome nominal de 50 mm do modelo.
+
+## Placa de chute
+
+A [referência da ZJUNlict Booster Board](references/kicker-board/README.md) inclui [STEP parcial](references/kicker-board/zjunlict-booster-board-partial.step), [STEP da placa nua](references/kicker-board/zjunlict-booster-board-bare.step), projeto editável no KiCad e prévia. Ambos os STEP passaram na validação geométrica do FreeCAD.
+
+O contorno foi recuperado da camada mecânica e mede aproximadamente 147,71 × 129,09 mm. Apenas quatro dos 86 footprints têm modelos 3D associados. A espessura nominal importada de 0,41116 mm e os pequenos ajustes usados para fechar o contorno precisam ser conferidos na placa real; consultar as notas de conversão antes de dimensionar suportes ou folgas.
 
 ## Referências candidatas
 
@@ -45,7 +51,7 @@ Os envelopes seguem a orientação original de cada modelo e incluem os detalhes
 
 ## Seleção e nomes
 
-Os modelos foram extraídos ou copiados sem alterar seu conteúdo; somente os nomes externos foram padronizados. Os originais permanecem fora do repositório.
+Os modelos dos nove arquivos iniciais foram extraídos ou copiados sem alterar seu conteúdo; somente os nomes externos foram padronizados. A placa de chute foi convertida de Altium para KiCad/STEP, com os ajustes descritos em sua documentação. Os originais permanecem fora do repositório.
 
 | Origem fornecida | Arquivo(s) aproveitado(s) |
 | --- | --- |
@@ -61,7 +67,7 @@ Os modelos foram extraídos ou copiados sem alterar seu conteúdo; somente os no
 
 Foram omitidos os ZIPs completos, imagens de apresentação, a montagem/peças SolidWorks e Parasolid da Raspberry Pi e os auxiliares `t19-3.stp`/`t19-3.prt.19` do HAT. Os STEP principais já permitem o estudo de posicionamento; os formatos omitidos permanecem nos downloads originais caso seja necessária edição nativa detalhada.
 
-Para conferir a integridade dos dez arquivos selecionados, executar na raiz do repositório:
+Para conferir a integridade dos arquivos selecionados, incluindo os modelos e o projeto da placa de chute, executar na raiz do repositório:
 
 ```sh
 sha256sum -c SHA256SUMS
